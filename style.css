@@ -1801,7 +1801,6 @@ body.view-control-buttons .viewControlButton {
 }
 
 .alert {
-      display: block;
     margin: auto;
     position: absolute;
     top: 50%;

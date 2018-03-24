@@ -45,7 +45,7 @@
         document.body.classList.add('desktop');
       }
       if (portraitMediaQueryList.matches){
-        alert.style.display = '';
+        alert.style.display = 'block';
       } else {
         alert.style.display = 'none';
       }
@@ -412,6 +412,9 @@
   function enable(scenes) {
     deviceOrientationControlMethod.getPitch(function(err, pitch) {
       if (!err) {
+        if (pitch > 1){
+          pitch = 0;
+        }
         scenes[0].view.setPitch(pitch);
       }
     });
