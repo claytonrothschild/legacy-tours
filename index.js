@@ -30,6 +30,7 @@
   var sceneListToggleElement = document.querySelector('#sceneListToggle');
   var autorotateToggleElement = document.querySelector('#autorotateToggle');
   var fullscreenToggleElement = document.querySelector('#fullscreenToggle');
+  var alert = document.querySelector(".alert");
 
   // Detect desktop or mobile mode.
   if (window.matchMedia) {
@@ -44,7 +45,9 @@
         document.body.classList.add('desktop');
       }
       if (portraitMediaQueryList.matches){
-        console.log("portrait");
+        alert.style.display = '';
+      } else {
+        alert.style.display = 'none';
       }
     };
     var mql = matchMedia("(max-width: 500px), (max-height: 500px)");
