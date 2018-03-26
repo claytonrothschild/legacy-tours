@@ -412,9 +412,6 @@
   function enable(scenes) {
     deviceOrientationControlMethod.getPitch(function(err, pitch) {
       if (!err) {
-        if (pitch > .6){
-          pitch = 0;
-        }
         scenes[0].view.setPitch(pitch);
       }
     });
