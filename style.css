@@ -1752,7 +1752,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 .viewControlButton {
   display: none;
   position: absolute;
-  bottom: 0;
+  bottom: 20%;
   left: 50%;
   width: 40px;
   height: 40px;
