@@ -1810,3 +1810,14 @@ body.view-control-buttons .viewControlButton {
   background-color: rgba(58,68,84,0.8);
     padding: 20px;
 }
+
+.alert2 {
+      display: block;
+    margin: auto;
+    position: absolute;
+    bottom: 5%;
+    left: 23%;
+      background-color: rgb(58,68,84);
+  background-color: rgba(58,68,84,0.8);
+    padding: 10px;
+}

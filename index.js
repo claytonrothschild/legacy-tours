@@ -21,6 +21,7 @@
   var screenfull = window.screenfull;
   var data = window.APP_DATA;
   var tour = window.location.pathname.replace(/\//g, "");
+  var embed = window.location.hash.indexOf("embed") != -1
 
   // Grab elements from DOM.
   var panoElement = document.querySelector('#pano');
@@ -31,11 +32,39 @@
   var autorotateToggleElement = document.querySelector('#autorotateToggle');
   var fullscreenToggleElement = document.querySelector('#fullscreenToggle');
   var alert = document.querySelector(".alert");
+  var newWindowButton = document.querySelector(".alert2");
 
+  // Get user agent
+  var ua = window.navigator.userAgent;
+var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
+var webkit = !!ua.match(/WebKit/i);
+var iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
+
+  if (embed){
+newWindowButton.style.display = 'none'; //change to block when ready
+  } else{
+newWindowButton.style.display = 'none';
+  }
   // Detect desktop or mobile mode.
   if (window.matchMedia) {
     var portraitMediaQueryList = window.matchMedia("(orientation: portrait)");
-
+    var prev = document.querySelector('#previous');
+    var next = document.querySelector('#next');
+//       var iHeight = window.screen.height;
+//   var iWidth = window.screen.width;
+//       var absoluteButtonPosition;
+//      if (iWidth === 414 && iHeight === 736) {
+//     absoluteButtonPosition = 414-100;
+//   }
+// else if (iWidth === 375 && iHeight === 667) {
+//     absoluteButtonPosition = 375-100;
+//   }
+// else if (iWidth === 375 && iHeight === 812) {
+//     absoluteButtonPosition = 375-100;
+//   } else if  (iWidth === 320) {
+//     absoluteButtonPosition = 320-100;
+//   }
+    
     var setMode = function() {
       if (mql.matches) {
         document.body.classList.remove('desktop');
@@ -46,9 +75,23 @@
       }
       if (portraitMediaQueryList.matches){
         alert.style.display = 'block';
+      //   if (iOSSafari){
+
+      // }
       } else {
         alert.style.display = 'none';
+//         console.log(window.innerHeight);
+//         if (iOSSafari){
+// window.scrollTo(0, 0);
+
+//         next.style.top = absoluteButtonPosition +'px';
+//         prev.style.top = absoluteButtonPosition + 'px';
+//         next.style.bottom = '';
+//         prev.style.bottom = '';
+//       }
       }
+      // console.log(iOSSafari)
+      
     };
     var mql = matchMedia("(max-width: 500px), (max-height: 500px)");
     setMode();
@@ -85,7 +128,7 @@
 
   // Create scenes.
   var scenes = data.scenes.map(function(data) {
-    var urlPrefix = "https://bigdatahomes.blob.core.windows.net/legacy/" + tour +"/tiles";
+    var urlPrefix = "https://bigdatahomes.azureedge.net/legacy/" + tour +"/tiles";
     var source = Marzipano.ImageUrlSource.fromString(
       urlPrefix + "/" + data.id + "/{z}/{f}/{y}/{x}.jpg",
       { cubeMapPreviewUrl: urlPrefix + "/" + data.id + "/preview.jpg" });
@@ -412,6 +455,7 @@
   function enable(scenes) {
     deviceOrientationControlMethod.getPitch(function(err, pitch) {
       if (!err) {
+        if (embed) { pitch = 0 }
         scenes[0].view.setPitch(pitch);
       }
     });
@@ -437,7 +481,7 @@
     }
   }
 
-    if (window.matchMedia) {
+    if (window.matchMedia && !embed) {
       var setVRMode = function() {
         if (mql.matches) {
           enabled = true;

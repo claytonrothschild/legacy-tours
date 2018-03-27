@@ -67,6 +67,7 @@
 </a>
 
 <p style="display:none;" class="alert">Turn the device on its side.</p>
+<p style="display:none;" class="alert2"><a href=""Click here to open tour in a new window.</a></p>
 <script src="vendor/es5-shim.js"></script>
 <script src="vendor/eventShim.js"></script>
 <script src="vendor/classList.js"></script>
@@ -77,8 +78,8 @@
 <script>
 var pathName = window.location.pathname.replace(/\//g, "");
 
-var scenesPath = "https://bigdatahomes.blob.core.windows.net/legacy/" + pathName + "/scenesManifest.js";
-var dataPath = "https://bigdatahomes.blob.core.windows.net/legacy/" + pathName + "/data.js";
+var scenesPath = "https://bigdatahomes.azureedge.net/legacy/" + pathName + "/scenesManifest.js";
+var dataPath = "https://bigdatahomes.azureedge.net/legacy/" + pathName + "/data.js";
 document.write("<script type='text/javascript' src='"+ scenesPath + "'><\/scr" + "ipt>");
 document.write("<script type='text/javascript' src='"+ dataPath + "'><\/scr" + "ipt>");
 document.write("<script src=\"DeviceOrientationControlMethod.js\"><\/script><script src=\"index.js\"><\/script>")
