@@ -21,7 +21,8 @@
   var screenfull = window.screenfull;
   var data = window.APP_DATA;
   var tour = window.location.pathname.replace(/\//g, "");
-  var embed = window.location.hash.indexOf("embed") != -1
+  var embed = window.location.hash.indexOf("embed") != -1;
+  var marketing = window.location.hash.indexOf("marketing") != -1;
 
   // Grab elements from DOM.
   var panoElement = document.querySelector('#pano');
@@ -73,7 +74,7 @@ newWindowButton.style.display = 'none';
         document.body.classList.remove('mobile');
         document.body.classList.add('desktop');
       }
-      if (portraitMediaQueryList.matches){
+      if (portraitMediaQueryList.matches && !embed){
         alert.style.display = 'block';
       //   if (iOSSafari){
 
@@ -481,9 +482,9 @@ newWindowButton.style.display = 'none';
     }
   }
 
-    if (window.matchMedia && !embed) {
+    if (window.matchMedia) {
       var setVRMode = function() {
-        if (mql.matches) {
+        if (mql.matches && !embed) {
           enabled = true;
           enable(scenes);
           autorotateToggleElement.classList.remove('enabled');
