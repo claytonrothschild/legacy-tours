@@ -14,6 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 'use strict';
 
   var Marzipano = window.Marzipano;
@@ -23,6 +24,8 @@
   var tour = window.location.pathname.replace(/\//g, "");
   var embed = window.location.hash.indexOf("embed") != -1;
   var marketing = window.location.hash.indexOf("marketing") != -1;
+
+
 
   // Grab elements from DOM.
   var panoElement = document.querySelector('#pano');
@@ -34,6 +37,7 @@
   var fullscreenToggleElement = document.querySelector('#fullscreenToggle');
   var alert = document.querySelector(".alert");
   var newWindowButton = document.querySelector(".alert2");
+
 
   // Get user agent
   var ua = window.navigator.userAgent;
@@ -102,6 +106,20 @@ newWindowButton.style.display = 'none';
   } else {
     document.body.classList.add('desktop');
   }
+
+      if (window.tourOverride) {
+        tour = tourOverride;
+        sceneListElement.style.display = "none";
+        // sceneElements.style.display = "none";
+        sceneListToggleElement.style.display = "none";
+        autorotateToggleElement.style.display = "none";
+        fullscreenToggleElement.style.display = "none";
+        alert.style.display = "none";
+        document.querySelector("#titleBar").style.display = "none";
+        document.querySelector("#toggleDeviceOrientation").style.display = "none";
+        document.querySelector("#previous").style.bottom = 0;
+        document.querySelector("#next").style.bottom = 0;
+      }
 
   // Detect whether we are on a touch device.
   document.body.classList.add('no-touch');
@@ -456,7 +474,9 @@ newWindowButton.style.display = 'none';
   function enable(scenes) {
     deviceOrientationControlMethod.getPitch(function(err, pitch) {
       if (!err) {
-        if (embed) { pitch = 0 }
+        if (embed || window.tourOverride) {
+          pitch = 0;
+        }
         scenes[0].view.setPitch(pitch);
       }
     });
