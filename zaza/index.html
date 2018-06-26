@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, shrink-to-fit=no">
+    <link href='https://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' type='text/css' href='css/style.css'>
+    <title>ZaZa 360 by TourRhino</title>
+    <style>
+    html, body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        margin: 0;
+        }
+      #container {
+        width: 100%;
+        height: 100%;
+        }
+    </style>
+  </head>
+  <body>
+    <!-- Launch Page -->
+    <div id="launch-page">
+      <div class="title"><p id="title-text">ZaZa 360</p></div>
+      <div class="subtitle"><p id="subtitle-text">A panoramic browsing experience for Hotel Zaza.</p><br /> <p>By TourRhino.</p></div>
+      <div id="progress-container">
+        <div id="progress-container-mask">
+          <div id="progress-indicator" class="sk-fading-circle">
+            <div id="progress-text">0</div>
+            <div class="sk-circle1 sk-circle"></div>
+            <div class="sk-circle2 sk-circle"></div>
+            <div class="sk-circle3 sk-circle"></div>
+            <div class="sk-circle4 sk-circle"></div>
+            <div class="sk-circle5 sk-circle"></div>
+            <div class="sk-circle6 sk-circle"></div>
+            <div class="sk-circle7 sk-circle"></div>
+            <div class="sk-circle8 sk-circle"></div>
+            <div class="sk-circle9 sk-circle"></div>
+            <div class="sk-circle10 sk-circle"></div>
+            <div class="sk-circle11 sk-circle"></div>
+            <div class="sk-circle12 sk-circle"></div>
+          </div>
+          <div id="enter-button">ENTER</div>
+        </div>
+      </div>
+    </div>
+    <!-- Sidebar -->
+    <div id = "sidenav" class="sidenav">
+      <div id="logo" style="cursor:pointer;">
+        <img style="width:160px;" src="https://pbs.twimg.com/profile_images/3213343060/317cbfca246fc534e8d2460b7c4e74b2_400x400.png"/>
+      </div>
+      <a href="#home" onclick="viewer.setPanorama( panorama )" id="home" style="">Main Menu</a>
+      <a href="#GuestRooms"  style="font-size:18px; margin-left:10px;" onclick="viewer.setPanorama( panorama4 )" id="guestrooms">Guest Rooms</a>
+      <a href="#clients" style="font-size:18px; margin-left:10px;" id="conceptsuites" onclick="viewer.setPanorama( panorama3 )" >Concept Suites</a>
+      <a href="#poolside" style="font-size:18px; margin-left:10px;" id="poolside" onclick="viewer.setPanorama( panorama1 )" >Poolside</a>
+      <a href="#amenities" style="font-size:18px; margin-left:10px;" id="amenities" onclick="viewer.setPanorama( panorama2 )" >Amenities</a>
+      <a href="#jsModal" id="popup" class="jsModalTrigger">Request Information</a>
+      <a href="#vr" id="popup" class="vrTrigger">VR Mode</a>
+    </div>
+    <div class="menuCollapseButton" onclick="ToggleMenu(this)">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+    <!-- Pano Container -->
+    <div id="container"></div>
+    <!-- Pano Elements -->
+    <!-- Custom Youtube Element -->
+    <div id="desc-container" style="display:none">
+      <iframe src="https://www.youtube.com/embed/mniwBQLHxKg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <div class="vidtitle">Explore Houston Nightlife</div>
+      <div class="vidtext">Houston offers a vibrant night life within walking distance of Hotel Zaza. Explore all that Houston has to offer with this short video. Enjoy your stay, and enjoy Houston!</div>
+    </div>
+    <!-- Lead Gen Element -->
+    <div id="jsModal" class="modal">
+      <div class="modal__overlay jsOverlay"></div>
+      <div class="modal__container">
+        <div class="_form_1"></div><script src="https://claytonrothschild.activehosted.com/f/embed.php?id=1" type="text/javascript" charset="utf-8"></script>
+        <button class="modal__close jsModalClose">&#10005;</button>
+      </div>
+    </div>
+    <div id="leadGenInfoSpot" style="display:none;">
+      <div class="_form_1"></div><script src="https://claytonrothschild.activehosted.com/f/embed.php?id=1" type="text/javascript" charset="utf-8"></script> <!-- convert into iframe -->
+    </div>
+    <!-- Slideshow Element -->
+    <div id="jsSlideshowModal" class="modal">
+      <div class="modal__overlay jsOverlay"></div>
+      <div class="modal__container">
+        <p>slideshow</p>
+        <button class="modal__close jsModalClose">&#10005;</button>
+      </div>
+    </div>
+    <!-- Custom Hover Elements -->
+    <div id="hoverSeeMore" class="infoBubble" style="display:none">
+      <p>Learn more about Zaza</p>
+    </div>
+    <div id="hoverViewSpecialOffer" class="infoBubble" style="display:none">
+      <p>Book this room</p>
+    </div>
+    <div id="hoverGoHome" class="infoBubble" style="display:none">
+      <p>Go home</p>
+    </div>
+    <div id="hoverGoToNextRoom" class="infoBubble" style="display:none">
+      <p>Go to next room</p>
+    </div>
+    <!-- Scripts -->
+    <script src="https://bigdatahomes.azureedge.net/assets/demos/zaza/js/three.min.js"></script>
+    <script src="https://bigdatahomes.azureedge.net/assets/demos/zaza/js/panolens.js"></script>
+    <script src="js/app.js"></script>
+  </body>
