@@ -474,9 +474,9 @@ newWindowButton.style.display = 'none';
   function enable(scenes) {
     deviceOrientationControlMethod.getPitch(function(err, pitch) {
       if (!err) {
-        if (embed || window.tourOverride) {
+
           pitch = 0;
-        }
+
         scenes[0].view.setPitch(pitch);
       }
     });
