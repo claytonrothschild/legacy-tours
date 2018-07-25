@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, shrink-to-fit=no">
+    <link href='https://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' type='text/css' href='css/style.css'>
+    <title>AirBnB 360 by TourRhino</title>
+    <style>
+    html, body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        margin: 0;
+        }
+      #container {
+        width: 100%;
+        height: 100%;
+        }
+    </style>
+  </head>
+  <body>
+    <!-- Launch Page -->
+    <div id="launch-page">
+      <div class="title"><p id="title-text">AirBnB 360</p></div>
+      <div class="subtitle"><p id="subtitle-text">A panoramic browsing experience for an AirBnB residence.</p><br /> <p>By TourRhino.</p></div>
+      <div id="progress-container">
+        <div id="progress-container-mask">
+          <div id="progress-indicator" class="sk-fading-circle">
+            <div id="progress-text">0</div>
+            <div class="sk-circle1 sk-circle"></div>
+            <div class="sk-circle2 sk-circle"></div>
+            <div class="sk-circle3 sk-circle"></div>
+            <div class="sk-circle4 sk-circle"></div>
+            <div class="sk-circle5 sk-circle"></div>
+            <div class="sk-circle6 sk-circle"></div>
+            <div class="sk-circle7 sk-circle"></div>
+            <div class="sk-circle8 sk-circle"></div>
+            <div class="sk-circle9 sk-circle"></div>
+            <div class="sk-circle10 sk-circle"></div>
+            <div class="sk-circle11 sk-circle"></div>
+            <div class="sk-circle12 sk-circle"></div>
+          </div>
+          <div id="enter-button">ENTER</div>
+        </div>
+      </div>
+    </div>
+    <!-- Sidebar -->
+    <div id = "sidenav" class="sidenav">
+      <div id="logo" style="cursor:pointer;">
+        <img style="width:160px;" src="https://static.dezeen.com/uploads/2014/07/Airbnb-rebrand-by-DesignStudio_dezeen_468_8.jpg"/>
+      </div>
+      <a href="#home" onclick="viewer.setPanorama( panorama )" id="home" style="">Main Menu</a>
+      <a href="#GuestRooms"  style="font-size:18px; margin-left:10px;" onclick="viewer.setPanorama( panorama1 )" id="guestrooms">Kitchen and Dining</a>
+      <a href="#clients" style="font-size:18px; margin-left:10px;" id="conceptsuites" onclick="viewer.setPanorama( panorama2 )" >Living Room</a>
+      <a href="#poolside" style="font-size:18px; margin-left:10px;" id="poolside" onclick="viewer.setPanorama( panorama3 )" >Family Room</a>
+      <a href="#amenities" style="font-size:18px; margin-left:10px;" id="amenities" onclick="viewer.setPanorama( panorama4 )" >Bedroom</a>
+      <a href="#jsModal" id="popup" class="jsModalTrigger">View Floorplan</a>
+      <a href="#vr" id="popup" class="vrTrigger">VR Mode</a>
+      <div id ="audioSettings"><a class="audioButton" href="#audio"><p class="audioOn">Audio: On</p>
+        <p class="audioOff">Audio: Off</p></a></div>
+    </div>
+    <div class="menuCollapseButton" onclick="ToggleMenu(this)">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+    <!-- Pano Container -->
+    <div id="container"></div>
+    <!-- Pano Elements -->
+    <!-- Custom Youtube Element -->
+    <div id="desc-container" style="display:none">
+      <iframe src="https://www.youtube.com/embed/mniwBQLHxKg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <div class="vidtitle">Explore Houston Nightlife</div>
+      <div class="vidtext">Houston offers a vibrant night life within walking distance of Hotel Zaza. Explore all that Houston has to offer with this short video. Enjoy your stay, and enjoy Houston!</div>
+    </div>
+    <!-- Lead Gen Element -->
+    <div id="jsModal" class="modal">
+      <div class="modal__overlay jsOverlay"></div>
+      <div class="modal__container">
+        <div id="floorplan" width="400px">
+          <div class="floorplan-grid-container">
+  <div class="floorplan-item1" onclick="setPanorama( panorama3 )"></div>
+  <div class="floorplan-item2" onclick="setPanorama( panorama2 )"></div>
+  <div class="floorplan-item3" onclick="setPanorama( panorama4 )"></div>  
+  <div class="floorplan-item4" onclick="setPanorama( panorama1 )"></div>
+</div></div>
+        <!-- <img src="floorplan.png" /> -->
+        <button class="modal__close jsModalClose">&#10005;</button>
+      </div>
+    </div>
+    <!-- Slideshow Element -->
+    <div id="jsSlideshowModal" class="modal">
+      <div class="modal__overlay jsOverlay"></div>
+      <div class="modal__container">
+        <p>slideshow</p>
+        <button class="modal__close jsModalClose">&#10005;</button>
+      </div>
+    </div>
+    <!-- Scripts -->
+    <script src="https://bigdatahomes.azureedge.net/assets/demos/airbnb/js/three.min.js"></script>
+    <script src="https://bigdatahomes.azureedge.net/assets/demos/airbnb/js/panolens.js"></script>
+    <script src="js/app.js"></script>
+  </body>
