@@ -139,7 +139,7 @@ panorama.addEventListener( 'enter-fade-start', function(){
 } );
 
 // set up a viewer, and add the panos to the viewer
-viewer = new PANOLENS.Viewer( { container: container, controlBar: true, controlButtons: [], autoHideInfospot: false, horizontalView: false, output: 'console'} );
+viewer = new PANOLENS.Viewer( { container: container, controlBar: true, controlButtons: [], autoHideInfospot: false, horizontalView: true, output: 'console'} );
 viewer.add(panorama,panorama1,panorama2,panorama3,panorama4 );
 viewer.camera.fov = 87;
 //this is unnacceptably hacky. 
